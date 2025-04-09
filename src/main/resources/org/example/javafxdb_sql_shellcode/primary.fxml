@@ -1,16 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.javafxdb_sql_shellcode.PrimaryController">
+
+<FlowPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="401.0" style="-fx-background-radius: 10; -fx-background-color: #9b9b9b;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.javafxdb_sql_shellcode.PrimaryController">
    <children>
-      <Label text="Primary View" />
-      <Button fx:id="primaryButton" text="Switch to Secondary View" onAction="#switchToSecondary"/>
+      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="401.0" spacing="10.0" style="-fx-background-color: #d1d1d1; -fx-background-radius: 10;">
+         <children>
+            <Label text="Main Menu GUI">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="311.0" spacing="15.0" style="-fx-background-color: #9b9b9b; -fx-background-radius: 10;">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#connectToDatabaseBtnClicked" prefHeight="26.0" prefWidth="140.0" style="-fx-background-radius: 10; -fx-background-color: #2c3c85;" text="Connect to Database " textFill="WHITE" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="599.0" spacing="15.0" style="-fx-background-color: #9b9b9b; -fx-background-radius: 10;">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#displayAllUsersBtnClicked" prefHeight="26.0" prefWidth="140.0" style="-fx-background-radius: 10; -fx-background-color: #026467;" text="Display all users" textAlignment="CENTER" textFill="WHITE" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="599.0" spacing="15.0" style="-fx-background-color: #9b9b9b; -fx-background-radius: 10;">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#inserUserToDatabasebtnClicked" prefHeight="26.0" prefWidth="140.0" style="-fx-background-radius: 10; -fx-background-color: #674c8c;" text="Insert User to Database" textFill="WHITE" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="599.0" spacing="15.0" style="-fx-background-color: #9b9b9b; -fx-background-radius: 10;">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#queryByNameBtnClicked" prefHeight="26.0" prefWidth="140.0" style="-fx-background-radius: 10; -fx-background-color: #0e7a0b;" text="Query by name" textFill="WHITE" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="599.0" spacing="15.0" style="-fx-background-color: #9b9b9b; -fx-background-radius: 10;">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#editUserBtnClicked" prefHeight="26.0" prefWidth="140.0" style="-fx-background-radius: 10; -fx-background-color: #2c72a8;" text="Edit user" textFill="WHITE" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="599.0" spacing="15.0" style="-fx-background-color: #9b9b9b; -fx-background-radius: 10;">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#deleteUserBtnClicked" prefHeight="26.0" prefWidth="140.0" style="-fx-background-radius: 10; -fx-background-color: #9a3d0c;" text="Delete user" textFill="WHITE" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="599.0" spacing="15.0" style="-fx-background-color: #9b9b9b; -fx-background-radius: 10;">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#exitAppBtnClicked" prefHeight="26.0" prefWidth="140.0" style="-fx-background-radius: 10; -fx-background-color: #6d5700;" text="Exit App" textFill="WHITE" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+      </VBox>
    </children>
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
-</VBox>
+</FlowPane>

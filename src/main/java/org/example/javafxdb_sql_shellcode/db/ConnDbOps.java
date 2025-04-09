@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import static java.sql.DriverManager.getConnection;
+
 /**
  *
  * @author MoaathAlrajab
@@ -20,22 +22,22 @@ public class ConnDbOps {
     final String DB_URL = MYSQL_SERVER_URL + "nuneja38000";
     final String USERNAME = "nuneja38";
     final String PASSWORD = "FARM123$";
-    
-    public  boolean connectToDatabase() {
+
+    public boolean connectToDatabase() {
         boolean hasRegistredUsers = false;
 
 
         //Class.forName("com.mysql.jdbc.Driver");
         try {
             //First, connect to MYSQL server and create the database if not created
-            Connection conn = DriverManager.getConnection(MYSQL_SERVER_URL, USERNAME, PASSWORD);
+            Connection conn = getConnection(MYSQL_SERVER_URL, USERNAME, PASSWORD);
             Statement statement = conn.createStatement();
             statement.executeUpdate("CREATE DATABASE IF NOT EXISTS nuneja38");
             statement.close();
             conn.close();
 
             //Second, connect to the database and create the table "users" if cot created
-            conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            conn = getConnection(DB_URL, USERNAME, PASSWORD);
             statement = conn.createStatement();
             String sql = "CREATE TABLE IF NOT EXISTS users ("
                     + "id INT( 10 ) NOT NULL PRIMARY KEY AUTO_INCREMENT,"
@@ -68,11 +70,11 @@ public class ConnDbOps {
         return hasRegistredUsers;
     }
 
-    public  void queryUserByName(String name) {
+    public void queryUserByName(String name) {
 
 
         try {
-            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "SELECT * FROM users WHERE name = ?";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, name);
@@ -94,12 +96,11 @@ public class ConnDbOps {
         }
     }
 
-    public  void listAllUsers() {
-
+    public void listAllUsers() {
 
 
         try {
-            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "SELECT * FROM users ";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
 
@@ -121,11 +122,11 @@ public class ConnDbOps {
         }
     }
 
-    public  void insertUser(String name, String email, String phone, String address, String password) {
+    public void insertUser(String name, String email, String phone, String address, String password) {
 
 
         try {
-            Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            Connection conn = getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "INSERT INTO users (name, email, phone, address, password) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, name);
@@ -147,5 +148,36 @@ public class ConnDbOps {
         }
     }
 
-    
+    public void deleteUserByEmail(String email) {
+        try {
+            Connection conn = getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "DELETE FROM users WHERE email = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, email);
+            int rowsAffected = stmt.executeUpdate();
+            System.out.println(rowsAffected > 0 ? "User deleted." : "No user found.");
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateUser(String email, String name, String phone, String address, String password) {
+        try {
+            Connection conn = getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "UPDATE users SET name = ?, phone = ?, address = ?, password = ? WHERE email = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, name);
+            stmt.setString(2, phone);
+            stmt.setString(3, address);
+            stmt.setString(4, password);
+            stmt.setString(5, email);
+            int rowsAffected = stmt.executeUpdate();
+            System.out.println(rowsAffected > 0 ? "User updated." : "No user found.");
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
