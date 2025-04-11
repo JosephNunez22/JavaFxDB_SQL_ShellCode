@@ -29,7 +29,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="599.0" spacing="15.0" style="-fx-background-color: #9b9b9b; -fx-background-radius: 10;">
                <children>
-                  <Button mnemonicParsing="false" onAction="#inserUserToDatabasebtnClicked" prefHeight="26.0" prefWidth="140.0" style="-fx-background-radius: 10; -fx-background-color: #674c8c;" text="Register" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#insertUserToDatabasebtnClicked" prefHeight="26.0" prefWidth="140.0" style="-fx-background-radius: 10; -fx-background-color: #674c8c;" text="Register" textFill="WHITE" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="599.0" spacing="15.0" style="-fx-background-color: #9b9b9b; -fx-background-radius: 10;">

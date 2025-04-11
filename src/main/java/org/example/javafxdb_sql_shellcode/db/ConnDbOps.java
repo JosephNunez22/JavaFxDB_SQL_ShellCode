@@ -7,7 +7,6 @@ package org.example.javafxdb_sql_shellcode.db;
 import org.example.javafxdb_sql_shellcode.Person;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -71,6 +70,30 @@ public class ConnDbOps {
         }
 
         return hasRegistredUsers;
+    }
+    public LinkedList<Person> queryUserByNameGUI(String name) {
+        LinkedList<Person> users = new LinkedList<>();
+        try {
+            Connection conn = getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "SELECT * FROM users WHERE LOWER(name) = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1, name.toLowerCase().trim());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Person person = new Person(
+                        resultSet.getString("name"),
+                        resultSet.getString("email"),
+                        resultSet.getString("phone"),
+                        resultSet.getString("address")
+                );
+                users.add(person);
+            }
+            preparedStatement.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 
     public void queryUserByName(String name) {
@@ -204,13 +227,33 @@ public class ConnDbOps {
             stmt.setString(1, email);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                // Assuming you store password as plain text (for now — hash it later for security)
                 String name = rs.getString("name");
                 String phone = rs.getString("phone");
                 String address = rs.getString("address");
                 String password = rs.getString("password");
                 person = new Person(name, email, phone, address); // Add more fields if needed
                 person.setPassword(password);
+            }
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return person;
+    }
+    public Person getUserByName(String name) {
+        Person person = null;
+        try {
+            Connection conn = getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "SELECT * FROM users WHERE name = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, name);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                String email = rs.getString("email");
+                String phone = rs.getString("phone");
+                String address = rs.getString("address");
+
+                person = new Person(name, email, phone, address);
             }
             conn.close();
         } catch (SQLException e) {

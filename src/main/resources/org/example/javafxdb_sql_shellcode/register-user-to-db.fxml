@@ -22,7 +22,7 @@
       </HBox>
    </top>
    <center>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="569.0" spacing="15.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" focusTraversable="true" prefHeight="427.0" prefWidth="299.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
             <VBox prefHeight="60.0" prefWidth="600.0">
                <children>
@@ -36,9 +36,6 @@
                      </children>
                   </HBox>
                   <TextField fx:id="emailTF" prefHeight="26.0" prefWidth="435.0" promptText="Enter the email of the user to edit">
-                     <padding>
-                        <Insets left="200.0" right="200.0" />
-                     </padding>
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -53,9 +50,6 @@
                      </font>
                   </Label>
                   <TextField fx:id="fullNameTF" prefHeight="26.0" prefWidth="435.0" promptText="Enter new Name:">
-                     <padding>
-                        <Insets left="200.0" right="200.0" />
-                     </padding>
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -70,9 +64,6 @@
                      </font>
                   </Label>
                   <TextField fx:id="phoneTF" prefHeight="26.0" prefWidth="435.0" promptText="Enter new Phone:">
-                     <padding>
-                        <Insets left="200.0" right="200.0" />
-                     </padding>
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -87,9 +78,6 @@
                      </font>
                   </Label>
                   <TextField fx:id="addressTF" prefHeight="26.0" prefWidth="435.0" promptText="Enter new Address">
-                     <padding>
-                        <Insets left="200.0" right="200.0" />
-                     </padding>
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -104,9 +92,6 @@
                      </font>
                   </Label>
                   <TextField fx:id="passwordTF" prefHeight="26.0" prefWidth="435.0" promptText="Enter new Password">
-                     <padding>
-                        <Insets left="200.0" right="200.0" />
-                     </padding>
                      <font>
                         <Font size="18.0" />
                      </font>

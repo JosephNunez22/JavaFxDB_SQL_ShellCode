@@ -45,6 +45,7 @@ public class EditUserController {
 
     @FXML
     private VBox bottomVbox;
+
     private Person person;
 
     public void setUserData(Person person) {
@@ -53,8 +54,19 @@ public class EditUserController {
         phoneTF.setText(person.getPhoneNumber());
         addressTF.setText(person.getAddress());
         oEmailTF.setText(person.getEmail());
-        passwordTF.setText(person.getPassword()); // Only if you store it this way
-        addUserCard(person); // Now it’s safe to call
+        passwordTF.setText(person.getPassword());
+        addUserCard(person);
+        setPersonData(person);
+    }
+    public void setPersonData(Person person) {
+        fullNameTF.setText(person.getName());
+        oEmailTF.setText(person.getEmail());
+        phoneTF.setText(person.getPhoneNumber());
+        addressTF.setText(person.getAddress());
+        passwordTF.setText(person.getPassword());
+        nEmailVbox.setVisible(false);
+        nEmailVbox.setManaged(false);
+        changeEmailCB.setSelected(false);
     }
 
     @FXML
@@ -62,6 +74,7 @@ public class EditUserController {
         changeEmailCB.selectedProperty().addListener((obs, wasSelected, isSelected) -> {
             nEmailVbox.setVisible(isSelected);
             nEmailVbox.setDisable(!isSelected);
+            nEmailVbox.setManaged(isSelected);
         });
     }
     public void addUserCard(Person person) {
@@ -69,7 +82,6 @@ public class EditUserController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("user-view-pane.fxml"));
             HBox userCard = (HBox) loader.load();
             UserViewController controller = loader.getController();
-            controller.disableBtn();
             controller.setUserData(person);
             bottomVbox.getChildren().add(userCard);
         } catch (IOException e) {
@@ -89,7 +101,7 @@ public class EditUserController {
         }
         if (fullNameTF.getText().isEmpty() || phoneTF.getText().isEmpty() || addressTF.getText().isEmpty() || email.isEmpty()) {
             System.out.println("All fields must be filled!");
-            return; // Don't proceed if validation fails
+            return;
         }
         if (!email.contains("@")) {
             System.out.println("Please enter a valid email.");

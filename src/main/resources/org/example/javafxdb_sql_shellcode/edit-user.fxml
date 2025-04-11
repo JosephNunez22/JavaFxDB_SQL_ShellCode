@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="editBp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.javafxdb_sql_shellcode.EditUserController">
+<BorderPane fx:id="editBp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="796.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.javafxdb_sql_shellcode.EditUserController">
    <top>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -23,7 +23,7 @@
       </HBox>
    </top>
    <center>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="569.0" spacing="15.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="481.0" prefWidth="400.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
             <VBox prefHeight="60.0" prefWidth="600.0">
                <children>
@@ -38,9 +38,6 @@
                      </children>
                   </HBox>
                   <TextField fx:id="oEmailTF" prefHeight="26.0" prefWidth="435.0" promptText="Enter the email of the user to edit">
-                     <padding>
-                        <Insets left="200.0" right="200.0" />
-                     </padding>
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -55,9 +52,6 @@
                      </font>
                   </Label>
                   <TextField fx:id="fullNameTF" prefHeight="26.0" prefWidth="435.0" promptText="Enter new Name:">
-                     <padding>
-                        <Insets left="200.0" right="200.0" />
-                     </padding>
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -72,9 +66,6 @@
                      </font>
                   </Label>
                   <TextField fx:id="phoneTF" prefHeight="26.0" prefWidth="435.0" promptText="Enter new Phone:">
-                     <padding>
-                        <Insets left="200.0" right="200.0" />
-                     </padding>
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -89,9 +80,6 @@
                      </font>
                   </Label>
                   <TextField fx:id="addressTF" prefHeight="26.0" prefWidth="435.0" promptText="Enter new Address">
-                     <padding>
-                        <Insets left="200.0" right="200.0" />
-                     </padding>
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -106,16 +94,13 @@
                      </font>
                   </Label>
                   <TextField fx:id="passwordTF" prefHeight="26.0" prefWidth="435.0" promptText="Enter new Password">
-                     <padding>
-                        <Insets left="200.0" right="200.0" />
-                     </padding>
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
                </children>
             </VBox>
-            <VBox fx:id="nEmailVbox" disable="true" focusTraversable="true" prefHeight="60.0" prefWidth="600.0" visible="false">
+            <VBox fx:id="nEmailVbox" disable="true" focusTraversable="true" prefHeight="97.0" prefWidth="400.0" visible="false">
                <children>
                   <Label prefHeight="20.0" prefWidth="151.0" text="New Email Address">
                      <font>
@@ -123,9 +108,6 @@
                      </font>
                   </Label>
                   <TextField fx:id="nEmailTF" prefHeight="26.0" prefWidth="435.0" promptText="Enter the email of the user to edit">
-                     <padding>
-                        <Insets left="200.0" right="200.0" />
-                     </padding>
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -133,9 +115,6 @@
                </children>
             </VBox>
          </children>
-         <padding>
-            <Insets bottom="15.0" top="15.0" />
-         </padding>
          <BorderPane.margin>
             <Insets left="150.0" right="150.0" />
          </BorderPane.margin>

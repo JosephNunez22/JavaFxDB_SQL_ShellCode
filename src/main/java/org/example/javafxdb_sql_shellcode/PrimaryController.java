@@ -17,8 +17,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.example.javafxdb_sql_shellcode.db.ConnDbOps;
 
-import java.sql.*;
-
 public class PrimaryController {
     private static final ConnDbOps cdbop = App.getInstance();
 
@@ -69,7 +67,6 @@ public class PrimaryController {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -78,10 +75,10 @@ public class PrimaryController {
     @FXML
     void editUserBtnClicked(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("edit-user.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-view.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
-            stage.setTitle("Edit User");
+            stage.setTitle("Login");
             stage.setScene(new Scene(root));
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(((Node) event.getSource()).getScene().getWindow());
@@ -99,7 +96,7 @@ public class PrimaryController {
     }
 
     @FXML
-    void inserUserToDatabasebtnClicked(ActionEvent event) {
+    void insertUserToDatabasebtnClicked(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("register-user-to-db.fxml"));
             Parent root = fxmlLoader.load();
@@ -108,7 +105,7 @@ public class PrimaryController {
             stage.setScene(new Scene(root));
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initOwner(((Node) event.getSource()).getScene().getWindow());
-            stage.showAndWait();
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -117,7 +114,7 @@ public class PrimaryController {
     @FXML
     void queryByNameBtnClicked(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("delete-confirmation.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("quary-by-name-confirmation.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Confirm Deletion");

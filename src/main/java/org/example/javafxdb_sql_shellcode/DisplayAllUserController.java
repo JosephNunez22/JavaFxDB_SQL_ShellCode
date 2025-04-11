@@ -32,6 +32,10 @@ public class DisplayAllUserController {
         });
     }
     public void addUserCard(Person person) {
+        if (person == null) {
+            System.out.println("Warning: Tried to add null Person to user card.");
+            return;
+        }
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("user-view-pane.fxml"));
             HBox userCard = (HBox) loader.load();

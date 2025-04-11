@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import java.io.File;
 
@@ -32,7 +33,9 @@ public class UserViewController {
 
     @FXML
     public void initialize() {
-
+        double rad = (profilePicIV.getFitWidth()/2);
+        Circle pic = new Circle(rad,rad,rad);
+        profilePicIV.setClip(pic);
     }
     @FXML
     void profilePicBtnClicked(ActionEvent event) {

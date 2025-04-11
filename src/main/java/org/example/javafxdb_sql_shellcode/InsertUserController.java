@@ -29,6 +29,21 @@ public class InsertUserController {
     private BorderPane registerUserBP;
 
     @FXML
+    public void initialize() {
+        fullNameTF.setDisable(false);
+        emailTF.setDisable(false);
+        phoneTF.setDisable(false);
+        addressTF.setDisable(false);
+        passwordTF.setDisable(false);
+
+        fullNameTF.setEditable(true);
+        emailTF.setEditable(true);
+        phoneTF.setEditable(true);
+        addressTF.setEditable(true);
+        passwordTF.setEditable(true);
+    }
+
+    @FXML
     void cancelBtnClicked(ActionEvent event) {
         Stage stage = (Stage) registerUserBP.getScene().getWindow();
         stage.close();

@@ -10,9 +10,9 @@
 
 <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="143.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.javafxdb_sql_shellcode.UserViewController">
    <children>
-      <Button fx:id="profileBtn" alignment="CENTER" mnemonicParsing="false" onAction="#profilePicBtnClicked" prefHeight="107.0" prefWidth="109.0" style="-fx-background-radius: 100;">
+      <Button fx:id="profileBtn" alignment="CENTER" mnemonicParsing="false" onAction="#profilePicBtnClicked" prefHeight="110.0" prefWidth="110.0" style="-fx-background-radius: 100;">
          <graphic>
-            <ImageView fx:id="profilePicIV" fitHeight="112.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="profilePicIV" fitHeight="110.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" />
          </graphic>
          <HBox.margin>
             <Insets left="10.0" />
