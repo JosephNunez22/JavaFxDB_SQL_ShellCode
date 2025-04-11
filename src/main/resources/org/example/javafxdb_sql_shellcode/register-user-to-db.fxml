@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="registerUserBP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.javafxdb_sql_shellcode.InsertUserController">
+   <top>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Register User">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="569.0" spacing="15.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="60.0" prefWidth="600.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="140.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="151.0" text="Email Address">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <TextField fx:id="emailTF" prefHeight="26.0" prefWidth="435.0" promptText="Enter the email of the user to edit">
+                     <padding>
+                        <Insets left="200.0" right="200.0" />
+                     </padding>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox prefHeight="60.0" prefWidth="600.0">
+               <children>
+                  <Label text="Full Name">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="fullNameTF" prefHeight="26.0" prefWidth="435.0" promptText="Enter new Name:">
+                     <padding>
+                        <Insets left="200.0" right="200.0" />
+                     </padding>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox prefHeight="60.0" prefWidth="600.0">
+               <children>
+                  <Label text="Phone Number">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="phoneTF" prefHeight="26.0" prefWidth="435.0" promptText="Enter new Phone:">
+                     <padding>
+                        <Insets left="200.0" right="200.0" />
+                     </padding>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox prefHeight="60.0" prefWidth="600.0">
+               <children>
+                  <Label text="Address">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="addressTF" prefHeight="26.0" prefWidth="435.0" promptText="Enter new Address">
+                     <padding>
+                        <Insets left="200.0" right="200.0" />
+                     </padding>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox prefHeight="60.0" prefWidth="600.0">
+               <children>
+                  <Label text="Password">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="passwordTF" prefHeight="26.0" prefWidth="435.0" promptText="Enter new Password">
+                     <padding>
+                        <Insets left="200.0" right="200.0" />
+                     </padding>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="15.0" top="15.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets left="150.0" right="150.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="150.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#cancelBtnClicked" prefHeight="48.0" prefWidth="125.0" style="-fx-background-radius: 15;" text="Cancel">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#confirmBtnClicked" prefHeight="48.0" prefWidth="125.0" style="-fx-background-radius: 15; -fx-background-color: #9DC183;" text="Confirm">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

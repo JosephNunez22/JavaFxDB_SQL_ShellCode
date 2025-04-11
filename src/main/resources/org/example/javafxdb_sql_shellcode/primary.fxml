@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<FlowPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="401.0" style="-fx-background-radius: 10; -fx-background-color: #9b9b9b;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.javafxdb_sql_shellcode.PrimaryController">
+<FlowPane fx:id="MmGUI" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="401.0" style="-fx-background-radius: 10; -fx-background-color: #9b9b9b;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.javafxdb_sql_shellcode.PrimaryController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="401.0" spacing="10.0" style="-fx-background-color: #d1d1d1; -fx-background-radius: 10;">
          <children>
@@ -30,7 +29,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="599.0" spacing="15.0" style="-fx-background-color: #9b9b9b; -fx-background-radius: 10;">
                <children>
-                  <Button mnemonicParsing="false" onAction="#inserUserToDatabasebtnClicked" prefHeight="26.0" prefWidth="140.0" style="-fx-background-radius: 10; -fx-background-color: #674c8c;" text="Insert User to Database" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#inserUserToDatabasebtnClicked" prefHeight="26.0" prefWidth="140.0" style="-fx-background-radius: 10; -fx-background-color: #674c8c;" text="Register" textFill="WHITE" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="599.0" spacing="15.0" style="-fx-background-color: #9b9b9b; -fx-background-radius: 10;">

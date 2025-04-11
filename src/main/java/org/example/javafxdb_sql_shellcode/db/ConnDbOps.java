@@ -4,12 +4,15 @@
  */
 package org.example.javafxdb_sql_shellcode.db;
 
+import org.example.javafxdb_sql_shellcode.Person;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
 
 import static java.sql.DriverManager.getConnection;
 
@@ -71,13 +74,11 @@ public class ConnDbOps {
     }
 
     public void queryUserByName(String name) {
-
-
         try {
             Connection conn = getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "SELECT * FROM users WHERE name = ?";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.setString(1, name);
+            preparedStatement.setString(1, name.toLowerCase().trim());
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -97,8 +98,6 @@ public class ConnDbOps {
     }
 
     public void listAllUsers() {
-
-
         try {
             Connection conn = getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "SELECT * FROM users ";
@@ -122,9 +121,31 @@ public class ConnDbOps {
         }
     }
 
+    public LinkedList<Person> listAllUsersGUI() {
+        LinkedList<Person> userList = new LinkedList<>();
+        try {
+            Connection conn = getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "SELECT * FROM users";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                String phone = resultSet.getString("phone");
+                String address = resultSet.getString("address");
+                Person user = new Person(name, email, address, phone);
+                userList.add(user);
+            }
+            preparedStatement.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return userList;
+    }
+
     public void insertUser(String name, String email, String phone, String address, String password) {
-
-
         try {
             Connection conn = getConnection(DB_URL, USERNAME, PASSWORD);
             String sql = "INSERT INTO users (name, email, phone, address, password) VALUES (?, ?, ?, ?, ?)";
@@ -134,20 +155,16 @@ public class ConnDbOps {
             preparedStatement.setString(3, phone);
             preparedStatement.setString(4, address);
             preparedStatement.setString(5, password);
-
             int row = preparedStatement.executeUpdate();
-
             if (row > 0) {
                 System.out.println("A new user was inserted successfully.");
             }
-
             preparedStatement.close();
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
     public void deleteUserByEmail(String email) {
         try {
             Connection conn = getConnection(DB_URL, USERNAME, PASSWORD);
@@ -161,7 +178,6 @@ public class ConnDbOps {
             e.printStackTrace();
         }
     }
-
     public void updateUser(String email, String name, String phone, String address, String password) {
         try {
             Connection conn = getConnection(DB_URL, USERNAME, PASSWORD);
@@ -178,6 +194,28 @@ public class ConnDbOps {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+    }
+    public Person getUserByEmail(String email) {
+        Person person = null;
+        try {
+            Connection conn = getConnection(DB_URL, USERNAME, PASSWORD);
+            String sql = "SELECT * FROM users WHERE email = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                // Assuming you store password as plain text (for now — hash it later for security)
+                String name = rs.getString("name");
+                String phone = rs.getString("phone");
+                String address = rs.getString("address");
+                String password = rs.getString("password");
+                person = new Person(name, email, phone, address); // Add more fields if needed
+                person.setPassword(password);
+            }
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return person;
     }
 }

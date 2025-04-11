@@ -33,7 +33,6 @@ public class DeleteConfirmationController {
             } else {
                 cdbop.deleteUserByEmail(emailTF.getText().toLowerCase().trim());
             }
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
